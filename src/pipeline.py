@@ -1,3 +1,4 @@
+from pathlib import Path
 import pandas as pd
 
 def load_data(path):
@@ -48,9 +49,13 @@ def run_pipeline(path):
     return df
 
 if __name__ == "__main__":
-    df = run_pipeline('C:/Users/Kunal/Desktop/week_2/data/titanic.csv')
+    base_path = Path(__file__).resolve().parents[1]
+    input_path = base_path / "data" / "titanic.csv"
+    output_path = base_path / "data" / "cleaned_titanic.csv"
+    
+    df = run_pipeline(input_path)
     if df is not None:
-        save_cleaned_data(df, 'C:/Users/Kunal/Desktop/week_2/data/cleaned_titanic.csv')
+        save_cleaned_data(df, output_path)
         print("Pipeline completed!")
         print(df.shape)
         print(df.head())
