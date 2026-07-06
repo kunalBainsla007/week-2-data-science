@@ -12,9 +12,10 @@ def load_data(path):
 
 def clean_data(df):
     try:
+        df = df.copy()
         df['Age'] = df['Age'].fillna(df['Age'].median())
         df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
-        df.drop(columns=['Cabin', 'Name', 'Ticket', 'PassengerId'], inplace=True)
+        df.drop(columns=['Cabin', 'Name', 'Ticket', 'PassengerId'], inplace=False, errors='ignore')
         return df
     except Exception as e:
         print(f"Error in cleaning: {e}")
