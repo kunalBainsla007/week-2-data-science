@@ -1,4 +1,4 @@
-# Week 2 - Data Engineering Fundamentals
+# Data Engineering Fundamentals
 
 ## Project Overview
 Real-world data preprocessing pipeline using Titanic dataset.
